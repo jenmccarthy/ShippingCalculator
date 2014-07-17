@@ -12,36 +12,45 @@
   <div class="container">
     <h1>Shipping Rate</h1>
     <div class="row">
-      <div class="col=md-6">
         <h2>Enter your package information</h2>
-        <form id="calculator">
-          <div class="form-group">
-            <label for="origin-location">Origin Location</label>
-            <select class="form-control" id="origin-location">
-              <option>PDX</option>
-              <option>LAX</option>
-              <option>DEN</option>
-              <option>CHI</option>
-              <option>NYC</option>
-            </select>
-            <!-- <input type="text" class="form-control" id="origin-location"> -->
-          </div>
-          <div class="form-group">
-            <label for="destination">Destination</label>
-            <select class="form-control" id="destination">
-              <option>PDX</option>
-              <option>LAX</option>
-              <option>DEN</option>
-              <option>CHI</option>
-              <option>NYC</option>
-            </select>
-            <!-- <input type="text" class="form-control" id="destination"> -->
-          </div>
-          <div class="form-group">
-            <label for="weight">Weight</label>
-            <input type="text" class="form-control" id="weight">
-          </div>
-        </form>
+        <div class="packages col-md-4">
+          <form id="calculator">
+            <div class="package">
+              <div class="form-group">
+                <label for="origin-location">Origin Location</label>
+                <select class="form-control" id="origin-location">
+                  <option>PDX</option>
+                  <option>LAX</option>
+                  <option>DEN</option>
+                  <option>CHI</option>
+                  <option>NYC</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="destination">Destination</label>
+                <select class="form-control" id="destination">
+                  <option>PDX</option>
+                  <option>LAX</option>
+                  <option>DEN</option>
+                  <option>CHI</option>
+                  <option>NYC</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="weight">Weight</label>
+                <input type="text" class="form-control" id="weight">
+              </div>
+            </div>
+
+            <div class="buttons">
+              <button type="button" class="btn" id="add">Add Package</button>
+              <button type="submit" class="btn">See Shipping Rate</button>
+            </div>
+          </form>
+        </div>
+        <div class="result">
+          Your shipping cost is:<span id="cost"></span>
+        </div>
       </div>
     </div>
   </div>

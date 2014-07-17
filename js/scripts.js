@@ -25,25 +25,66 @@ var package = {
   }
 };
 
-package.origin = "PDX";
-package.destination = "NYC";
-package.weight = 10;
-
-console.log(package.cost());
-
+var total = [];
 
 $(document).ready(function(){
-  $("form#calculator").submit(function(event)) {
-    event.preventDefault;
-  $("select#form-control")
+  $("button#add").click(function() {
+    $(".package").last().after("<div class='package'>" +
+                            "<div class='form-group'>" +
+                              "<label for='origin-location'>Origin Location</label>" +
+                              "<select class='form-control' id='origin-location'>" +
+                                "<option>PDX</option>" +
+                                "<option>LAX</option>" +
+                                "<option>DEN</option>" +
+                                "<option>CHI</option>" +
+                                "<option>NYC</option>" +
+                              "</select>" +
+                            "</div>" +
+                            "<div class='form-group'>" +
+                              "<label for='destination'>Destination</label>" +
+                              "<select class='form-control' id='destination'>" +
+                                "<option>PDX</option>" +
+                                "<option>LAX</option>" +
+                                "<option>DEN</option>" +
+                                "<option>CHI</option>" +
+                                "<option>NYC</option>" +
+                              "</select>" +
+                            "</div>" +
+                            "<div class='form-group'>" +
+                              "<label for='weight'>Weight</label>" +
+                              "<input type='text' class='form-control' id='weight'>" +
+                            "</div>"+
+                          "</div>");
+  });
 
+  $("form#calculator").submit(function(event) {
+    event.preventDefault();
 
+    $(".package").each(function() {
+      //total = [];
+      package.origin = $(this).find("select#origin-locator").val();
+      package.destination = $(this).find("select#destination").val();
+      package.weight = parseInt($(this).find("input#weight").val());
 
+      // var result = package.cost();
+      // package.total.push(package.cost());
+      total.push(package.cost());
+    })
 
-  }
+    var price = 0;
+    total.forEach(function(package) {
+      price =  price + package;
+    });
 
+    console.log(package.total)
+    console.log(total);
+    console.log(price);
 
+    $(".result").show();
+    $("#cost").text(price);
+    total = [];
 
+  });
 });
 
 
